@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+>
+
+<head>
+
+</head>
+<body>
+
+<ui:composition template="../layout.xhtml">
+
+    <ui:define name="title">Match Result</ui:define>
+
+
+    <ui:define name="content">
+
+        <c:choose>
+            <c:when test="#{!empty param['victory']}">
+                <h2 id="winText">YOU WON</h2>
+            </c:when>
+            <c:otherwise>
+                <h2 id="lostText">YOU LOST</h2>
+            </c:otherwise>
+        </c:choose>
+
+        <h:form>
+            <h:commandButton value="New Match" action="#{matchController.newMatch}" class="gameBtn"/>
+        </h:form>
+
+        <a href="../index.xhtml" class="btn">Home</a>
+
+    </ui:define>
+
+</ui:composition>
+</body>
+</html>
